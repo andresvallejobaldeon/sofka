@@ -1,0 +1,783 @@
+{
+	"info": {
+		"_postman_id": "8d91e13e-9814-415e-8d6a-2af869142791",
+		"name": "Sofka",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3907617"
+	},
+	"item": [
+		{
+			"name": "dao-services",
+			"item": [
+				{
+					"name": "getCustomer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/accounting-dao-service/api/customer/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounting-dao-service",
+								"api",
+								"customer",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCustomers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/accounting-dao-service/api/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounting-dao-service",
+								"api",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SaveCustomer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Patricio Baldeon\",\n    \"gender\": \"Masculino\",\n    \"age\": 43,\n    \"identification\": \"1715180541\",\n    \"address\": \"Sangolqui\",\n    \"phone\": \"0984732933\",\n    \"password\": \"pass123456\",\n    \"status\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/accounting-dao-service/api/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounting-dao-service",
+								"api",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAccount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/accounting-dao-service/api/account/123456",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounting-dao-service",
+								"api",
+								"account",
+								"123456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAccounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/accounting-dao-service/api/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounting-dao-service",
+								"api",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountNumber\": \"123456\",\n    \"accountType\": \"Ahorros\",\n    \"initialBalance\": 0,\n    \"status\": false,\n    \"customer\": {\n        \"customerId\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/accounting-dao-service/api/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounting-dao-service",
+								"api",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateAccount",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountType\": \"Ahorros\",\n    \"status\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/accounting-dao-service/api/account/123456",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounting-dao-service",
+								"api",
+								"account",
+								"123456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveMovement",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"movementDate\": \"2024-11-18\",\n    \"movementType\": \"CREDIT\",\n    \"amount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/accounting-dao-service/api/account/123456/movement",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounting-dao-service",
+								"api",
+								"account",
+								"123456",
+								"movement"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAccountMovements",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"movementDate\": \"2024-11-18\",\n    \"movementType\": \"CREDIT\",\n    \"amount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/accounting-dao-service/api/account/098765/movement",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounting-dao-service",
+								"api",
+								"account",
+								"098765",
+								"movement"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAccountMovement",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"movementDate\": \"2024-11-18\",\n    \"movementType\": \"CREDIT\",\n    \"amount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/accounting-dao-service/api/account/098765/movement/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounting-dao-service",
+								"api",
+								"account",
+								"098765",
+								"movement",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCustomer",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Patricio Black\",\n    \"age\": 43,\n    \"identification\": \"1715180541\",\n    \"phone\": \"0984732933\",\n    \"password\": \"pass12345689\",\n    \"status\": true,\n    \"id\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/accounting-dao-service/api/customer/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounting-dao-service",
+								"api",
+								"customer",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCustomerMovementsByDate",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"movementDate\": \"2024-11-18\",\n    \"movementType\": \"CREDIT\",\n    \"amount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/accounting-dao-service/api/customer/1/movement?init-date=2024-11-01&final-date=2024-11-17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounting-dao-service",
+								"api",
+								"customer",
+								"1",
+								"movement"
+							],
+							"query": [
+								{
+									"key": "init-date",
+									"value": "2024-11-01"
+								},
+								{
+									"key": "final-date",
+									"value": "2024-11-17"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCustomerAccounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/accounting-dao-service/api/customer/2/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounting-dao-service",
+								"api",
+								"customer",
+								"2",
+								"account"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "customer-service",
+			"item": [
+				{
+					"name": "AddCustomer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Juan Osorio\",\n    \"gender\": \"Masculino\",\n    \"age\": 30,\n    \"identification\": \"3344556677\",\n    \"address\": \"13 junio y Equinoccial\",\n    \"phone\": \"098874587\",\n    \"password\": \"1245\",\n    \"status\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8180/customer-service/api/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8180",
+							"path": [
+								"customer-service",
+								"api",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCustomers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8180/customer-service/api/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8180",
+							"path": [
+								"customer-service",
+								"api",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCustomer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8180/customer-service/api/customer/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8180",
+							"path": [
+								"customer-service",
+								"api",
+								"customer",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCustomer",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Patricio Quiroz\",\n    \"age\": 43,\n    \"identification\": \"1715180541\",\n    \"phone\": \"0984732933\",\n    \"password\": \"pass12345689\",\n    \"status\": true,\n    \"id\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8180/customer-service/api/customer/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8180",
+							"path": [
+								"customer-service",
+								"api",
+								"customer",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accounts-service",
+			"item": [
+				{
+					"name": "getAccounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8280/accounts-service/api/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8280",
+							"path": [
+								"accounts-service",
+								"api",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAccount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8280/accounts-service/api/account/123456",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8280",
+							"path": [
+								"accounts-service",
+								"api",
+								"account",
+								"123456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountNumber\": \"585545\",\n    \"accountType\": \"Corriente\",\n    \"initialBalance\": 1000,\n    \"status\": true,\n    \"customer\": {\n        \"customerId\": 2\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8280/accounts-service/api/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8280",
+							"path": [
+								"accounts-service",
+								"api",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateAccount",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountType\": \"Corriente\",\n    \"status\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8280/accounts-service/api/account/AHO001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8280",
+							"path": [
+								"accounts-service",
+								"api",
+								"account",
+								"AHO001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAccountMovements",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"movementDate\": \"2024-11-18\",\n    \"movementType\": \"CREDIT\",\n    \"amount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8280/accounts-service/api/account/098765/movement",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8280",
+							"path": [
+								"accounts-service",
+								"api",
+								"account",
+								"098765",
+								"movement"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAccountMovement",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"movementDate\": \"2024-11-18\",\n    \"movementType\": \"CREDIT\",\n    \"amount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8280/accounts-service/api/account/123456/movement/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8280",
+							"path": [
+								"accounts-service",
+								"api",
+								"account",
+								"123456",
+								"movement",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveAccountMovement",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"movementDate\": \"2024-12-15\",\n    \"movementType\": \"DEBIT\",\n    \"amount\": 540\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/accounting-dao-service/api/account/496825/movement",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounting-dao-service",
+								"api",
+								"account",
+								"496825",
+								"movement"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCustomerAccounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8280/accounts-service/api/customer/1/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8280",
+							"path": [
+								"accounts-service",
+								"api",
+								"customer",
+								"1",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCustomerMovementsByDate",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"movementDate\": \"2024-11-18\",\n    \"movementType\": \"CREDIT\",\n    \"amount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8280/accounts-service/api/customer/3/movement?init-date=2024-12-15&final-date=2024-12-15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8280",
+							"path": [
+								"accounts-service",
+								"api",
+								"customer",
+								"3",
+								"movement"
+							],
+							"query": [
+								{
+									"key": "init-date",
+									"value": "2024-12-15"
+								},
+								{
+									"key": "final-date",
+									"value": "2024-12-15"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

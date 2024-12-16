@@ -1,0 +1,2 @@
+insert into customer (customer_id, address, age, gender, identification, name, phone, password, status)
+values (1, "Sangolqui", 43, "Masculino", "1234567890", "Andres Vallejo", "123456", "pass123456", 1);

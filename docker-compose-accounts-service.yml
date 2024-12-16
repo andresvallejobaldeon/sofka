@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  accounts-service:
+    build: accounts-service
+    mem_limit: 512m
+    ports:
+      - "8280:8280"
+    environment:
+      DAO_URL: http://sofka-accounting-dao-service-1:8080/accounting-dao-service/api
+      DB_USER_NAME: root
+      DB_PASSWORD: admin
+    restart: always
